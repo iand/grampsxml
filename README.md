@@ -2,9 +2,9 @@
 
 Go package to parse Gramps XML files.
 
+[![Test Status](https://github.com/iand/grampsxml/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/iand/grampsxml/actions/workflows/test.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/iand/grampsxml)](https://goreportcard.com/report/github.com/iand/grampsxml)
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white)](https://pkg.go.dev/github.com/iand/grampsxml)
-[![Check Status](https://github.com/iand/grampsxml/actions/workflows/check.yml/badge.svg)](https://github.com/iand/grampsxml/actions/workflows/check.yml)
-[![Test Status](https://github.com/iand/grampsxml/actions/workflows/test.yml/badge.svg)](https://github.com/iand/grampsxml/actions/workflows/test.yml)
 
 ## About
 
