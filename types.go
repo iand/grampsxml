@@ -461,9 +461,10 @@ type Tagref struct {
 }
 
 type Attribute struct {
-	Priv  *bool  `xml:"priv,attr,omitempty"`
-	Type  string `xml:"type,attr"`
-	Value string `xml:"value,attr"`
+	Priv        *bool         `xml:"priv,attr,omitempty"`
+	Type        string        `xml:"type,attr"`
+	Value       string        `xml:"value,attr"`
+	Citationref []Citationref `xml:"citationref,omitempty"`
 }
 
 type Srcattribute struct {
@@ -484,8 +485,16 @@ type Url struct {
 }
 
 type Objref struct {
-	Hlink string `xml:"hlink,attr"`
-	Priv  *bool  `xml:"priv,attr,omitempty"`
+	Hlink  string  `xml:"hlink,attr"`
+	Priv   *bool   `xml:"priv,attr,omitempty"`
+	Region *Region `xml:"region,omitempty"`
+}
+
+type Region struct {
+	Corner1x *int `xml:"corner1_x,attr,omitempty"`
+	Corner1y *int `xml:"corner1_y,attr,omitempty"`
+	Corner2x *int `xml:"corner2_x,attr,omitempty"`
+	Corner2y *int `xml:"corner2_y,attr,omitempty"`
 }
 
 type Placeref struct {
