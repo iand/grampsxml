@@ -553,7 +553,7 @@ var wellFormedCases = []wellFormedCase{
 								Name:  "link",
 								Value: ptr("gramps://Person/handle/GNUJQCL9MD64AM56OH"),
 								Range: []Range{
-									{Start: "80", End: "101"},
+									{Start: 80, End: 101},
 								},
 							},
 						},
@@ -578,13 +578,13 @@ var wellFormedCases = []wellFormedCase{
 							{
 								Name: "bold",
 								Range: []Range{
-									{Start: "0", End: "10"},
+									{Start: 0, End: 10},
 								},
 							},
 							{
 								Name: "underline",
 								Range: []Range{
-									{Start: "0", End: "10"},
+									{Start: 0, End: 10},
 								},
 							},
 						},
