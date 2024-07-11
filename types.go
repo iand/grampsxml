@@ -334,8 +334,8 @@ type Style struct {
 }
 
 type Range struct {
-	Start string `xml:"start,attr"`
-	End   string `xml:"end,attr"`
+	Start int `xml:"start,attr"`
+	End   int `xml:"end,attr"`
 }
 
 type Tags struct {
