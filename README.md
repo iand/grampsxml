@@ -60,11 +60,13 @@ func main() {
 
 ## Getting Started
 
-Simply run
+Run the following in the directory containing your project's `go.mod` file:
 
-	go get github.com/iand/gramps
+```sh
+go get github.com/iand/grampsxml@latest
+```
 
-Documentation is at [http://godoc.org/github.com/iand/gramps](http://godoc.org/github.com/iand/gramps)
+Documentation is at [https://pkg.go.dev/github.com/iand/grampsxml](https://pkg.go.dev/github.com/iand/grampsxml)
 
 ## License
 

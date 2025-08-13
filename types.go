@@ -1,9 +1,88 @@
 package grampsxml
 
-import "encoding/xml"
+import (
+	"encoding/xml"
+)
 
 type Database struct {
+	Header       Header        `xml:"header"`
+	NameFormats  []NameFormat  `xml:"name-formats>format"`
+	Tags         *Tags         `xml:"tags,omitempty"`
+	Events       *Events       `xml:"events,omitempty"`
+	People       *People       `xml:"people,omitempty"`
+	Families     *Families     `xml:"families,omitempty"`
+	Citations    *Citations    `xml:"citations,omitempty"`
+	Sources      *Sources      `xml:"sources,omitempty"`
+	Places       *Places       `xml:"places,omitempty"`
+	Objects      *Objects      `xml:"objects,omitempty"`
+	Repositories *Repositories `xml:"repositories,omitempty"`
+	Notes        *Notes        `xml:"notes,omitempty"`
+	Bookmarks    *Bookmarks    `xml:"bookmarks,omitempty"`
+	Namemaps     *Namemaps     `xml:"namemaps,omitempty"`
+}
+
+func (db *Database) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var d171 Database171
+	err := d.DecodeElement(&d171, &start)
+	if err == nil {
+		db.Header = d171.Header
+		db.NameFormats = d171.NameFormats
+		db.Tags = d171.Tags
+		db.Events = d171.Events
+		db.People = d171.People
+		db.Families = d171.Families
+		db.Citations = d171.Citations
+		db.Sources = d171.Sources
+		db.Places = d171.Places
+		db.Objects = d171.Objects
+		db.Repositories = d171.Repositories
+		db.Notes = d171.Notes
+		db.Bookmarks = d171.Bookmarks
+		db.Namemaps = d171.Namemaps
+		return nil
+	}
+	var d172 Database172
+	err = d.DecodeElement(&d172, &start)
+	if err == nil {
+		db.Header = d172.Header
+		db.NameFormats = d172.NameFormats
+		db.Tags = d172.Tags
+		db.Events = d172.Events
+		db.People = d172.People
+		db.Families = d172.Families
+		db.Citations = d172.Citations
+		db.Sources = d172.Sources
+		db.Places = d172.Places
+		db.Objects = d172.Objects
+		db.Repositories = d172.Repositories
+		db.Notes = d172.Notes
+		db.Bookmarks = d172.Bookmarks
+		db.Namemaps = d172.Namemaps
+		return nil
+	}
+	return err
+}
+
+type Database171 struct {
 	XMLName      xml.Name      `xml:"http://gramps-project.org/xml/1.7.1/ database"`
+	Header       Header        `xml:"header"`
+	NameFormats  []NameFormat  `xml:"name-formats>format"`
+	Tags         *Tags         `xml:"tags,omitempty"`
+	Events       *Events       `xml:"events,omitempty"`
+	People       *People       `xml:"people,omitempty"`
+	Families     *Families     `xml:"families,omitempty"`
+	Citations    *Citations    `xml:"citations,omitempty"`
+	Sources      *Sources      `xml:"sources,omitempty"`
+	Places       *Places       `xml:"places,omitempty"`
+	Objects      *Objects      `xml:"objects,omitempty"`
+	Repositories *Repositories `xml:"repositories,omitempty"`
+	Notes        *Notes        `xml:"notes,omitempty"`
+	Bookmarks    *Bookmarks    `xml:"bookmarks,omitempty"`
+	Namemaps     *Namemaps     `xml:"namemaps,omitempty"`
+}
+
+type Database172 struct {
+	XMLName      xml.Name      `xml:"http://gramps-project.org/xml/1.7.2/ database"`
 	Header       Header        `xml:"header"`
 	NameFormats  []NameFormat  `xml:"name-formats>format"`
 	Tags         *Tags         `xml:"tags,omitempty"`

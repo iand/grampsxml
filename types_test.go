@@ -5,7 +5,6 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
 )
 
 func ptr[T any](v T) *T { return &v }
@@ -643,7 +642,7 @@ func TestWellFormedCases(t *testing.T) {
 				t.Fatalf("unexpected unmarshal error: %v", err)
 			}
 
-			if diff := cmp.Diff(tc.want, &db, cmpopts.IgnoreFields(Database{}, "XMLName")); diff != "" {
+			if diff := cmp.Diff(tc.want, &db); diff != "" {
 				t.Errorf("unmarshal mismatch (-want +got):\n%s", diff)
 			}
 		})
