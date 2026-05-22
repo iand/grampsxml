@@ -7,7 +7,8 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func ptr[T any](v T) *T { return &v }
+//go:fix inline
+func ptr[T any](v T) *T { return new(v) }
 
 type wellFormedCase struct {
 	name  string // optional
@@ -44,17 +45,17 @@ var wellFormedCases = []wellFormedCase{
 					Version: "5.1.5",
 				},
 				Researcher: &Researcher{
-					Resname:     ptr("grampsxml tester name"),
-					Resaddr:     ptr("grampsxml tester addr"),
-					Reslocality: ptr("grampsxml tester locality"),
-					Rescity:     ptr("grampsxml tester city"),
-					Resstate:    ptr("grampsxml tester state"),
-					Rescountry:  ptr("grampsxml tester country"),
-					Respostal:   ptr("grampsxml tester postal"),
-					Resphone:    ptr("grampsxml tester phone"),
-					Resemail:    ptr("grampsxml tester email"),
+					Resname:     new("grampsxml tester name"),
+					Resaddr:     new("grampsxml tester addr"),
+					Reslocality: new("grampsxml tester locality"),
+					Rescity:     new("grampsxml tester city"),
+					Resstate:    new("grampsxml tester state"),
+					Rescountry:  new("grampsxml tester country"),
+					Respostal:   new("grampsxml tester postal"),
+					Resphone:    new("grampsxml tester phone"),
+					Resemail:    new("grampsxml tester email"),
 				},
-				Mediapath: ptr("/user/grampsxml/media"),
+				Mediapath: new("/user/grampsxml/media"),
 			},
 		},
 	},
@@ -72,7 +73,7 @@ var wellFormedCases = []wellFormedCase{
 					Number: "-1",
 					Name:   "Surname, Name|Common Suffix (Nickname)",
 					Fmtstr: "surname, Name|common suffix (nickname)",
-					Active: ptr(true),
+					Active: new(true),
 				},
 			},
 		},
@@ -114,29 +115,29 @@ var wellFormedCases = []wellFormedCase{
 			People: &People{
 				Person: []Person{
 					{
-						ID:     ptr("I0000"),
+						ID:     new("I0000"),
 						Handle: "_f8c683ce6176f7422e564f7262d",
 						Change: "1709571921",
 						Priv:   nil,
 						Gender: "M",
 						Name: []Name{
 							{
-								Type:  ptr("Birth Name"),
-								Sort:  ptr("2"),
-								First: ptr("Testy"),
-								Call:  ptr("Testy"),
-								Title: ptr("Mr"),
-								Nick:  ptr("tt"),
+								Type:  new("Birth Name"),
+								Sort:  new("2"),
+								First: new("Testy"),
+								Call:  new("Testy"),
+								Title: new("Mr"),
+								Nick:  new("tt"),
 								Surname: []Surname{
 									{
-										Prefix:     ptr("von"),
+										Prefix:     new("von"),
 										Prim:       nil,
-										Derivation: ptr("Inherited"),
+										Derivation: new("Inherited"),
 										Surname:    "Testface",
 									},
 									{
-										Prim:       ptr(false),
-										Derivation: ptr("Patronymic"),
+										Prim:       new(false),
+										Derivation: new("Patronymic"),
 										Surname:    "Testface",
 									},
 								},
@@ -150,13 +151,13 @@ var wellFormedCases = []wellFormedCase{
 					},
 					{
 						Handle: "_076KQC7HG6P8BL5E35",
-						ID:     ptr("I0667"),
+						ID:     new("I0667"),
 						Change: "1185438865",
 						Gender: "M",
 						Name: []Name{
 							{
-								Type:  ptr("Birth Name"),
-								First: ptr("Edward"),
+								Type:  new("Birth Name"),
+								First: new("Edward"),
 								Surname: []Surname{
 									{
 										Surname: "Потылицин",
@@ -167,15 +168,15 @@ var wellFormedCases = []wellFormedCase{
 						Eventref: []Eventref{
 							{
 								Hlink: "_a5af0ecd609332c4202",
-								Role:  ptr("Primary"),
+								Role:  new("Primary"),
 							},
 							{
 								Hlink: "_a5af0ecd61d3ea3dda9",
-								Role:  ptr("Primary"),
+								Role:  new("Primary"),
 							},
 							{
 								Hlink: "_a5af0ecd62a6af10f0c",
-								Role:  ptr("Primary"),
+								Role:  new("Primary"),
 							},
 						},
 						Parentin: []Parentin{
@@ -222,18 +223,18 @@ var wellFormedCases = []wellFormedCase{
 					{
 						Handle:      "_a5af0eb667015e355db",
 						Change:      "1284030602",
-						ID:          ptr("E0000"),
-						Type:        ptr("Birth"),
+						ID:          new("E0000"),
+						Type:        new("Birth"),
 						Dateval:     &Dateval{Val: "1987-08-29"},
 						Place:       &Place{Hlink: "_08TJQCCFIX31BXPNXN"},
-						Description: ptr("Birth of Warner, Sarah Suzanne"),
+						Description: new("Birth of Warner, Sarah Suzanne"),
 					},
 					{
 						Handle:      "_a5af0eb696917232725",
 						Change:      "1284030602",
-						ID:          ptr("E0001"),
-						Type:        ptr("LVG"),
-						Description: ptr("Custom FTW5 tag to specify LIVING not specified in GEDCOM 5.5"),
+						ID:          new("E0001"),
+						Type:        new("LVG"),
+						Description: new("Custom FTW5 tag to specify LIVING not specified in GEDCOM 5.5"),
 					},
 				},
 			},
@@ -263,12 +264,12 @@ var wellFormedCases = []wellFormedCase{
 					{
 						Handle: "_X8YJQC77ZZBLP5KB2",
 						Change: "1185438865",
-						ID:     ptr("F0046"),
+						ID:     new("F0046"),
 						Rel:    &Rel{Type: "Married"},
 						Father: &Father{Hlink: "_L8YJQCNEX0EVZ9TG2L"},
 						Mother: &Mother{Hlink: "_B9YJQCL6OS9VRKOIB"},
 						Eventref: []Eventref{
-							{Hlink: "_a5af0edac9c3b0f9ff0", Role: ptr("Family")},
+							{Hlink: "_a5af0edac9c3b0f9ff0", Role: new("Family")},
 						},
 						Childref: []Childref{
 							{Hlink: "_V9YJQCQB9O2BBIF7H3"},
@@ -302,7 +303,7 @@ var wellFormedCases = []wellFormedCase{
 					{
 						Handle:     "_c140d2362f25a92643b",
 						Change:     "1328025930",
-						ID:         ptr("C0000"),
+						ID:         new("C0000"),
 						Dateval:    &Dateval{Val: "1855-06-25"},
 						Confidence: "3",
 						Sourceref:  &Sourceref{Hlink: "_b39fe3f390e30bd2b99"},
@@ -334,10 +335,10 @@ var wellFormedCases = []wellFormedCase{
 					{
 						Handle:  "_VUBKMQTA2XZG1V6QP8",
 						Change:  "1185438865",
-						ID:      ptr("S0002"),
-						Stitle:  ptr("World of the Wierd"),
-						Sauthor: ptr("John Jacob Jinglehiemerschmitt"),
-						Sabbrev: ptr("WOTW"),
+						ID:      new("S0002"),
+						Stitle:  new("World of the Wierd"),
+						Sauthor: new("John Jacob Jinglehiemerschmitt"),
+						Sabbrev: new("WOTW"),
 						Noteref: []Noteref{
 							{Hlink: "_ac3804a8405171ef666"},
 						},
@@ -345,8 +346,8 @@ var wellFormedCases = []wellFormedCase{
 							{Type: "Book Cover Type", Value: "Paperback"},
 						},
 						Reporef: []Reporef{
-							{Hlink: "_a701e99f93e5434f6f3", Callno: ptr("what-321-ever"), Medium: ptr("Photo")},
-							{Hlink: "_a701ead12841521cd4d", Callno: ptr("nothing-0"), Medium: ptr("Manuscript")},
+							{Hlink: "_a701e99f93e5434f6f3", Callno: new("what-321-ever"), Medium: new("Photo")},
+							{Hlink: "_a701ead12841521cd4d", Callno: new("nothing-0"), Medium: new("Manuscript")},
 						},
 					},
 				},
@@ -379,9 +380,9 @@ var wellFormedCases = []wellFormedCase{
 					{
 						Handle: "_00BKQC7SA8C9NCGB0A",
 						Change: "1234390424",
-						ID:     ptr("P0852"),
+						ID:     new("P0852"),
 						Type:   "City",
-						Ptitle: ptr("Deltona, FL"),
+						Ptitle: new("Deltona, FL"),
 						Pname: []Pname{
 							{Value: "Deltona"},
 						},
@@ -393,9 +394,9 @@ var wellFormedCases = []wellFormedCase{
 					{
 						Handle: "_023LQCRXHOWC0N2PG5",
 						Change: "1234390522",
-						ID:     ptr("P0853"),
+						ID:     new("P0853"),
 						Type:   "City",
-						Ptitle: ptr("Spirit Lake, IA"),
+						Ptitle: new("Spirit Lake, IA"),
 						Pname: []Pname{
 							{Value: "Spirit Lake"},
 						},
@@ -430,11 +431,11 @@ var wellFormedCases = []wellFormedCase{
 					{
 						Handle: "_238CGQ939HG18SS5MG",
 						Change: "1328027353",
-						ID:     ptr("O0010"),
+						ID:     new("O0010"),
 						File: File{
 							Src:         "1897_expeditionsmannschaft_rio_a.jpg",
 							Mime:        "image/jpeg",
-							Checksum:    ptr("352c7ae13b8b642471ecae6fa78ce206"),
+							Checksum:    new("352c7ae13b8b642471ecae6fa78ce206"),
 							Description: "1897_expeditionsmannschaft_rio_a",
 						},
 						Dateval: &Dateval{Val: "1897"},
@@ -445,11 +446,11 @@ var wellFormedCases = []wellFormedCase{
 					{
 						Handle: "_78V2GQX2FKNSYQ3OHE",
 						Change: "1185438865",
-						ID:     ptr("O0009"),
+						ID:     new("O0009"),
 						File: File{
 							Src:         "Gunnlaugur_Larusson_-_Yawn.jpg",
 							Mime:        "image/jpeg",
-							Checksum:    ptr("6bae0888ffdbad79b2735a5ac17450aa"),
+							Checksum:    new("6bae0888ffdbad79b2735a5ac17450aa"),
 							Description: "Yawn",
 						},
 					},
@@ -481,18 +482,18 @@ var wellFormedCases = []wellFormedCase{
 			Repositories: &Repositories{
 				Repository: []Repository{
 					{
-						ID:     ptr("R0002"),
+						ID:     new("R0002"),
 						Handle: "_a701e99f93e5434f6f3",
 						Change: "1328027438",
 						Rname:  "New York Public Library",
 						Type:   "Library",
 						Address: []Address{
 							{
-								Street:  ptr("5th Ave at 42 street"),
-								City:    ptr("New York"),
-								State:   ptr("New York"),
-								Country: ptr("USA"),
-								Postal:  ptr("11111"),
+								Street:  new("5th Ave at 42 street"),
+								City:    new("New York"),
+								State:   new("New York"),
+								Country: new("USA"),
+								Postal:  new("11111"),
 								Citationref: []Citationref{
 									{Hlink: "_c140e0925ac0adcf8c4"},
 								},
@@ -542,7 +543,7 @@ var wellFormedCases = []wellFormedCase{
 			Notes: &Notes{
 				Note: []Note{
 					{
-						ID:     ptr("N0001"),
+						ID:     new("N0001"),
 						Handle: "_ac380498bac48eedee8",
 						Change: "1185438865",
 						Type:   "Name Note",
@@ -550,7 +551,7 @@ var wellFormedCases = []wellFormedCase{
 						Style: []Style{
 							{
 								Name:  "link",
-								Value: ptr("gramps://Person/handle/GNUJQCL9MD64AM56OH"),
+								Value: new("gramps://Person/handle/GNUJQCL9MD64AM56OH"),
 								Range: []Range{
 									{Start: 80, End: 101},
 								},
@@ -558,10 +559,10 @@ var wellFormedCases = []wellFormedCase{
 						},
 					},
 					{
-						ID:     ptr("N0010"),
+						ID:     new("N0010"),
 						Handle: "_b39feb55e1173f4a699",
 						Change: "1234371685",
-						Format: ptr(true),
+						Format: new(true),
 						Type:   "Source text",
 						Text: `1855-06-25
 
