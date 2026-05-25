@@ -7,9 +7,6 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-//go:fix inline
-func ptr[T any](v T) *T { return new(v) }
-
 type wellFormedCase struct {
 	name  string // optional
 	input string
@@ -502,7 +499,6 @@ var wellFormedCases = []wellFormedCase{
 						// Number: "-1",
 						// Name:   "Surname, Name|Common Suffix (Nickname)",
 						// Fmtstr: "surname, Name|common suffix (nickname)",
-						// Active: ptr(true),
 					},
 				},
 			},
@@ -649,24 +645,3 @@ func TestWellFormedCases(t *testing.T) {
 		})
 	}
 }
-
-// func TestWellFormedRoundtrip(t *testing.T) {
-// 	for _, tc := range wellFormedCases {
-// 		t.Run(tc.name, func(t *testing.T) {
-// 			var db Database
-// 			err := xml.Unmarshal([]byte(tc.input), &db)
-// 			if err != nil {
-// 				t.Fatalf("unexpected unmarshal error: %v", err)
-// 			}
-
-// 			out, err := xml.MarshalIndent(&db, "", "\t")
-// 			if err != nil {
-// 				t.Fatalf("unexpected marshal error: %v", err)
-// 			}
-
-// 			if diff := cmp.Diff([]byte(tc.input), out); diff != "" {
-// 				t.Errorf("unmarshal mismatch (-want +got):\n%s", diff)
-// 			}
-// 		})
-// 	}
-// }

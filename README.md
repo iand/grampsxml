@@ -8,16 +8,22 @@ Go package to parse Gramps XML files.
 
 ## About
 
-This package provides some Go types that can be used to unmarshal the native XML data exported by [Gramps](https://gramps-project.org/), an application for managing genealogical data.
+This package provides Go types for unmarshalling the XML data exported by [Gramps](https://gramps-project.org/), an application for managing genealogical data.
 
-Currently it supports [version 1.7.1](https://gramps-project.org/xml/1.7.1/) of the XML format.
+Schema versions 1.7.1 and 1.7.2 are supported.
+
+Experimental support for schema 1.8.0 is available using the `gramps_schema180` build tag. Schema 1.8.0 adds the DNATest and DNAMatch object types, which are being developed in the upstream Gramps project (see the [design discussion](https://github.com/gramps-project/gramps/discussions/2292) and [implementation pull request](https://github.com/gramps-project/gramps/pull/2295)). The schema 1.8.0 API may change as the upstream design evolves.
+
+```sh
+go build -tags gramps_schema180 ./...
+go test -tags gramps_schema180 ./...
+```
 
 ## Status
 
-This is the first draft of the XML type mapping and there are probably mistakes or oversights. Use with caution.
+This is an early release. Use with caution.
 
 ## Usage
-
 
 ```Go
 package main
@@ -56,7 +62,6 @@ func main() {
 	}
 }
 ```
-
 
 ## Getting Started
 
