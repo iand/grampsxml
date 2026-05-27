@@ -78,26 +78,27 @@ type MatchTest struct {
 
 // DNATest represents one DNA kit for one person at one provider.
 type DNATest struct {
-	ID          *string       `xml:"id,attr,omitempty"`
-	Handle      string        `xml:"handle,attr"`
-	Priv        *bool         `xml:"priv,attr,omitempty"`
-	Change      string        `xml:"change,attr"`
-	Person      *PersonLink   `xml:"person,omitempty"`
-	AccountName *string       `xml:"account_name,omitempty"`
-	Provider    *string       `xml:"provider,omitempty"`
-	KitID       *string       `xml:"kit_id,omitempty"`
-	TestType    *string       `xml:"test_type,omitempty"`
-	GenomeBuild *string       `xml:"genome_build,omitempty"`
-	Daterange   *Daterange    `xml:"daterange,omitempty"`
-	Datespan    *Datespan     `xml:"datespan,omitempty"`
-	Dateval     *Dateval      `xml:"dateval,omitempty"`
-	Datestr     *Datestr      `xml:"datestr,omitempty"`
-	Haplogroup  *string       `xml:"haplogroup,omitempty"`
-	Attribute   []Attribute   `xml:"attribute,omitempty"`
-	Objref      []Objref      `xml:"objref,omitempty"`
-	Noteref     []Noteref     `xml:"noteref,omitempty"`
-	Citationref []Citationref `xml:"citationref,omitempty"`
-	Tagref      []Tagref      `xml:"tagref,omitempty"`
+	ID           *string       `xml:"id,attr,omitempty"`
+	Handle       string        `xml:"handle,attr"`
+	Priv         *bool         `xml:"priv,attr,omitempty"`
+	Change       string        `xml:"change,attr"`
+	Person       *PersonLink   `xml:"person,omitempty"`
+	AccountName  *string       `xml:"account_name,omitempty"`
+	Provider     *string       `xml:"provider,omitempty"`
+	KitID        *string       `xml:"kit_id,omitempty"`
+	TestType     *string       `xml:"test_type,omitempty"`
+	GenomeBuild  *string       `xml:"genome_build,omitempty"`
+	Daterange    *Daterange    `xml:"daterange,omitempty"`
+	Datespan     *Datespan     `xml:"datespan,omitempty"`
+	Dateval      *Dateval      `xml:"dateval,omitempty"`
+	Datestr      *Datestr      `xml:"datestr,omitempty"`
+	YHaplogroup  *string       `xml:"y_haplogroup,omitempty"`
+	MtHaplogroup *string       `xml:"mt_haplogroup,omitempty"`
+	Attribute    []Attribute   `xml:"attribute,omitempty"`
+	Objref       []Objref      `xml:"objref,omitempty"`
+	Noteref      []Noteref     `xml:"noteref,omitempty"`
+	Citationref  []Citationref `xml:"citationref,omitempty"`
+	Tagref       []Tagref      `xml:"tagref,omitempty"`
 }
 
 // DNAMatch represents a pairwise DNA match between two kits.

@@ -23,7 +23,8 @@ var wellFormedCases180 = []wellFormedCase{
       <test_type>Autosomal</test_type>
       <genome_build>GRCh37</genome_build>
       <dateval val="2023-01-15"/>
-      <haplogroup>H1a1</haplogroup>
+      <y_haplogroup>R-L21</y_haplogroup>
+      <mt_haplogroup>H1a1</mt_haplogroup>
       <noteref hlink="_N1ABCDEF1234567890"/>
       <tagref hlink="_TAGABCDEF1234567890"/>
     </dnatest>
@@ -33,19 +34,20 @@ var wellFormedCases180 = []wellFormedCase{
 			DNATests: &DNATests{
 				DNATest: []DNATest{
 					{
-						Handle:      "_T1ABCDEF1234567890",
-						Change:      "1700000000",
-						ID:          new("D0001"),
-						Person:      &PersonLink{Hlink: "_P1ABCDEF1234567890"},
-						AccountName: new("tester@example.com"),
-						Provider:    new("Ancestry"),
-						KitID:       new("KIT123456"),
-						TestType:    new("Autosomal"),
-						GenomeBuild: new("GRCh37"),
-						Dateval:     &Dateval{Val: "2023-01-15"},
-						Haplogroup:  new("H1a1"),
-						Noteref:     []Noteref{{Hlink: "_N1ABCDEF1234567890"}},
-						Tagref:      []Tagref{{Hlink: "_TAGABCDEF1234567890"}},
+						Handle:       "_T1ABCDEF1234567890",
+						Change:       "1700000000",
+						ID:           new("D0001"),
+						Person:       &PersonLink{Hlink: "_P1ABCDEF1234567890"},
+						AccountName:  new("tester@example.com"),
+						Provider:     new("Ancestry"),
+						KitID:        new("KIT123456"),
+						TestType:     new("Autosomal"),
+						GenomeBuild:  new("GRCh37"),
+						Dateval:      &Dateval{Val: "2023-01-15"},
+						YHaplogroup:  new("R-L21"),
+						MtHaplogroup: new("H1a1"),
+						Noteref:      []Noteref{{Hlink: "_N1ABCDEF1234567890"}},
+						Tagref:       []Tagref{{Hlink: "_TAGABCDEF1234567890"}},
 					},
 				},
 			},
